@@ -5,6 +5,9 @@
     "password": "",
     "dbname": "",
     "table": "",
+    "host": "localhost"
+  },
+  "server": {
     "port": "",
     "host": "localhost"
   }
