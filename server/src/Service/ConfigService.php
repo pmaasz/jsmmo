@@ -9,7 +9,7 @@ namespace APPNAME\Service;
  */
 class ConfigService
 {
-    use \App\Service\Singleton;
+    use \APPNAME\Service\Singleton;
 
     /**
      * @var array

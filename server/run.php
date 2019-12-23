@@ -4,6 +4,8 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+\APPNAME\Service\ConfigService::getInstance()->load(__DIR__ . '/config/config.json');
+
 $loop = React\EventLoop\Factory::create();
 
 $staticFileDeliveryHelper = new \APPNAME\Helper\StaticFileDeliveryHelper();
@@ -55,10 +57,7 @@ $loop->addPeriodicTimer(10.0, function () use ($sseConnectionHelper) {
     }
 });
 
-
-
-
-$port = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : 0;
+$port = \APPNAME\Service\ConfigService::getInstance()->get('server')['port'];
 $socket = new React\Socket\Server($port, $loop);
 
 $server->listen($socket);
