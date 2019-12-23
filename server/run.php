@@ -58,6 +58,7 @@ $loop->addPeriodicTimer(10.0, function () use ($sseConnectionHelper) {
 });
 
 $port = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : \APPNAME\Service\ConfigService::getInstance()->get('server')['port'];
+$host = \APPNAME\Service\ConfigService::getInstance()->get('server')['host'];
 $socket = new React\Socket\Server($port, $loop);
 
 $server->listen($socket);
