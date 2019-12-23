@@ -11,7 +11,7 @@
             const b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
             return b ? b.pop() : '';
         }
-        
+
         //here we add an event source and send data to our server
         // this is our event source it needs the address of our server
         const server = new EventSource("demo");
@@ -23,6 +23,7 @@
         server.addEventListener("new_connecetion", function (event) {
             $('#players').append('<li>Player</li>');
         });
+
 
         function broadcastData(event, data) {
             fetch('/data/' + event,
@@ -55,7 +56,7 @@
     /** here we add an event source and send data to our server*/
 
     // this is our event source it needs the address of our server
-    const server = new EventSource("demo");
+/*    const server = new EventSource("demo");
 
     server.addEventListener("message", function (event) {
         console.log(event);
@@ -81,7 +82,7 @@
         }).catch(function(err){
             console.log(err)
         });
-    }
+    }*/
 </script>
 </body>
 </html>
