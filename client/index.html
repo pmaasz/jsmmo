@@ -53,9 +53,8 @@
 
 <script>
     /** here we add an event source and send data to our server*/
-
     // this is our event source it needs the address of our server
-/*    const server = new EventSource("demo");
+    const server = new EventSource("demo");
 
     server.addEventListener("message", function (event) {
         console.log(event);
@@ -70,6 +69,10 @@
         addPlayer();
     });
 
+    function addPlayer() {
+
+    }
+
     function sendData(event, data) {
         fetch('/data/' + event,
             {
@@ -81,7 +84,7 @@
         }).catch(function(err){
             console.log(err)
         });
-    }*/
+    }
 </script>
 </body>
 </html>

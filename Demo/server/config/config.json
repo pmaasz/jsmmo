@@ -1,0 +1,14 @@
+{
+  "database": {
+    "driver": "",
+    "user": "",
+    "password": "",
+    "dbname": "",
+    "table": "",
+    "host": "localhost"
+  },
+  "server": {
+    "port": "5555",
+    "host": "localhost"
+  }
+}
