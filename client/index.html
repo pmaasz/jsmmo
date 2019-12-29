@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-    <title>jsmmo</title>
+    <title>jsmmo demo</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
@@ -23,8 +23,7 @@
         server.addEventListener("new_connecetion", function (event) {
             $('#players').append('<li>Player</li>');
         });
-
-
+        
         function broadcastData(event, data) {
             fetch('/data/' + event,
                 {
