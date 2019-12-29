@@ -2,8 +2,11 @@
 We make a cool browser based mmo!
 
 ## Contribution Guidelines
-do whatever you want!
+Do whatever you want! 
 
+<b>WIP:<b> Pong can be found in the "Demo" directory as demo 
+project to help as a reference.
+ 
 ## Installation and Usage
 
 ### Server
@@ -28,4 +31,4 @@ php run.php [PORT]
 
 ### Client
 
-run the client by calling localhost:[PORT] in your browser
+run the client by calling http://localhost:[PORT] in your browser
