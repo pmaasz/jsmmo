@@ -4,7 +4,7 @@ We make a cool browser based mmo!
 ## Contribution Guidelines
 Do whatever you want! 
 
-<b>WIP:<b> Pong can be found in the "Demo" directory as demo 
+<b>WIP:</b> Pong can be found in the "Demo" directory as demo 
 project to help as a reference.
  
 ## Installation and Usage
