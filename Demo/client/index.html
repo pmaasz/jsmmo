@@ -423,11 +423,13 @@
             });
 
             // Stop the player from moving when there are no keys being pressed.
-            document.addEventListener('keyup', function () {
-                Pong.playerOne.move = DIRECTION.IDLE;
+            document.addEventListener('keyup', function (event) {
+                if (event.key === 'w' || event.key === 's') {
+                    Pong.playerOne.move = DIRECTION.IDLE;
+                }
 
                 // local multiplayer
-                if(mode === 2) {
+                if(mode === 2 && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
                     Pong.playerTwo.move = DIRECTION.IDLE;
                 }
             });
