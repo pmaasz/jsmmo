@@ -157,15 +157,18 @@
                 Pong.updateBall(this.ball, this.playerOne, this.playerTwo);
                 Pong.updatePlayer(this.playerOne);
 
-                if(mode === 2) {
-                    Pong.updatePlayer(this.playerTwo);
-                }
-
                 Pong.updatePlayerBounds(this.playerOne);
                 Pong.updatePlayerBounds(this.playerTwo);
 
-                if(mode === 1) {
-                    Pong.updateAI(this.playerTwo);
+                switch (mode) {
+                    case 1:
+                        Pong.updateAI(this.playerTwo);
+                        break;
+                    case 2:
+                        Pong.updatePlayer(this.playerTwo);
+                        break;
+                    case 3:
+                        break;
                 }
 
                 Pong.updatePlayerBallCollision(this.playerOne, DIRECTION.RIGHT);
@@ -406,7 +409,7 @@
                 }
 
                 /** Player Two local multiplayer */
-                if(this.mode === 2) {
+                if(mode === 2) {
                     // Handle up arrow and w key events
                     if (event.key === 'ArrowUp') {
                         Pong.playerTwo.move = DIRECTION.UP;
@@ -424,7 +427,7 @@
                 Pong.playerOne.move = DIRECTION.IDLE;
 
                 // local multiplayer
-                if(this.mode === 2) {
+                if(mode === 2) {
                     Pong.playerTwo.move = DIRECTION.IDLE;
                 }
             });
