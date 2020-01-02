@@ -168,6 +168,7 @@
                         Pong.updatePlayer(this.playerTwo);
                         break;
                     case 3:
+                        Pong.updateOpponent();
                         break;
                 }
 
@@ -221,6 +222,7 @@
             }
         },
 
+        // updates players from keyboard input
         updatePlayer: function (player) {
             // Move playerOne if they player.move value was updated by a keyboard event
             if (player.move === DIRECTION.UP) {
@@ -230,6 +232,7 @@
             }
         },
 
+        // updates computer playerTwo
         updateAI: function (player) {
             // Handle playerTwo (AI) UP and DOWN movement
             let slow = 2;
@@ -250,6 +253,11 @@
                     player.y += slow;
                 }
             }
+        },
+
+        // updates online opponent
+        updateOpponent: function (){
+
         },
 
         updatePlayerBounds: function (player) {
