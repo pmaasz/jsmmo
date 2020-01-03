@@ -10,13 +10,35 @@
             text-align: center;
             background-color: black;
         }
-        canvas{
+        canvas, button, input{
             border: 1px solid #05cc00;
+        }
+        label{
+            color: #05cc00;
+        }
+        input{
+            width: 15rem;
+        }
+        button, input{
+            background-color: #000000;
+            color: #05cc00;
+        }
+        button:focus, input:focus{
+            outline-color: unset;
+        }
+        #chat{
+            text-align: left;
         }
     </style>
 </head>
 <body>
 <canvas></canvas>
+
+<div id="chat">
+    <label for="chatInput">Chat: </label>
+    <input type="text" id="chatInput"/>
+    <button id="sendChat">send</button>
+</div>
 
 <script>
     /** Global Variables*/
@@ -303,51 +325,25 @@
         // Draw the objects to the canvas element
         draw: function () {
             // Clear the Canvas
-            this.context.clearRect(
-                0,
-                0,
-                this.canvas.width,
-                this.canvas.height
-            );
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
             // Set the fill style to black
-            this.context.fillStyle = this.color;
+            this.context.fillStyle = backgroundColor;
 
             // Draw the background
-            this.context.fillRect(
-                0,
-                0,
-                this.canvas.width,
-                this.canvas.height
-            );
+            this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-            // Set the fill style to white (For the players and the ball)
+            // Set the fill style to itemColor, defined at the top, For the players and the ball
             this.context.fillStyle = itemColor;
 
             // Draw the Player
-            this.context.fillRect(
-                this.playerOne.x,
-                this.playerOne.y,
-                this.playerOne.width,
-                this.playerOne.height
-            );
-
+            this.context.fillRect(this.playerOne.x, this.playerOne.y, this.playerOne.width, this.playerOne.height);
             // Draw the Players
-            this.context.fillRect(
-                this.playerTwo.x,
-                this.playerTwo.y,
-                this.playerTwo.width,
-                this.playerTwo.height
-            );
+            this.context.fillRect(this.playerTwo.x, this.playerTwo.y, this.playerTwo.width, this.playerTwo.height);
 
             // Draw the Ball
             if (Pong._turnDelayIsOver.call(this)) {
-                this.context.fillRect(
-                    this.ball.x,
-                    this.ball.y,
-                    this.ball.width,
-                    this.ball.height
-                );
+                this.context.fillRect(this.ball.x, this.ball.y, this.ball.width, this.ball.height);
             }
 
             // Draw the net (Line in the middle)
@@ -364,18 +360,9 @@
             this.context.textAlign = 'center';
 
             // Draw the players score (left)
-            this.context.fillText(
-                this.playerOne.score.toString(),
-                (this.canvas.width / 2) - 300,
-                200
-            );
-
+            this.context.fillText(this.playerOne.score.toString(), (this.canvas.width / 2) - 300, 200);
             // Draw the playerTwo score (right)
-            this.context.fillText(
-                this.playerTwo.score.toString(),
-                (this.canvas.width / 2) + 300,
-                200
-            );
+            this.context.fillText(this.playerTwo.score.toString(), (this.canvas.width / 2) + 300, 200);
         },
 
         loop: function () {
@@ -461,7 +448,8 @@
     let Pong = Object.assign({}, Game);
     Pong.initialize();
 
-    /** here we add an event source and send data to our server*/
+    /************************* here we add an event source and send data to our server *******************************/
+
     // this is our event source it needs the address of our server
     const server = new EventSource("demo");
 
