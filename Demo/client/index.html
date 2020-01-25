@@ -10,38 +10,19 @@
             text-align: center;
             background-color: black;
         }
-        canvas, button, input{
+        canvas{
             border: 1px solid #05cc00;
-        }
-        label{
-            color: #05cc00;
-        }
-        input{
-            width: 15rem;
-        }
-        button, input{
-            background-color: #000000;
-            color: #05cc00;
-        }
-        button:focus, input:focus{
-            outline-color: unset;
-        }
-        #chat{
-            text-align: left;
         }
     </style>
 </head>
 <body>
 <canvas></canvas>
 
-<div id="chat">
-    <label for="chatInput">Chat: </label>
-    <input type="text" id="chatInput"/>
-    <button id="sendChat">send</button>
-</div>
-
 <script>
     /** Global Variables*/
+
+    const itemColor = '#05cc00';
+    const backgroundColor = '#000000';
 
     //direction codes
     const DIRECTION = {
@@ -52,8 +33,6 @@
         RIGHT: 4
     };
 
-    const itemColor = '#05cc00';
-    const backgroundColor = '#000000';
     const score = 5;
     let mode;
 
@@ -448,7 +427,7 @@
     let Pong = Object.assign({}, Game);
     Pong.initialize();
 
-    /************************* here we add an event source and send data to our server *******************************/
+/************************* here we add an event source and send data to our server ***********************************/
 
     // this is our event source it needs the address of our server
     const server = new EventSource("demo");
